@@ -51,3 +51,29 @@ Delete deployment with yaml file used to create them
 kubectl delete -f deployment.yml
 ```
 
+## ConfigMap
+
+Create new config map from yaml file
+```
+kubectl create -f configmap.yaml
+```
+
+List config maps under namespace
+```
+kubectl -n <namespace> get cm
+```
+
+Get a specific config map under namespace
+```
+kubectl -n <namespace> get cm <configmap name>
+# OR describe for more detail
+kubectl -n <namespace> describe cm <configmap name>
+```
+
+Delete config map
+```
+# by yaml file used to create it
+kubectl delete -f configmap.yml
+# by name
+kubectl delete cm <configmap name>
+```
