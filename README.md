@@ -46,9 +46,18 @@ Update deployment
 kubectl apply -f new-deployment.yml
 ```
 
-Delete deployment with yaml file used to create them
+Delete deployment
 ```
+# by yaml file used to create it
 kubectl delete -f deployment.yml
+# by name
+kubectl delete deployment <deployment name>
+```
+
+## Service
+List services under namespace
+```
+kubectl -n <namespace> get svc
 ```
 
 ## ConfigMap
@@ -76,4 +85,16 @@ Delete config map
 kubectl delete -f configmap.yml
 # by name
 kubectl delete cm <configmap name>
+```
+
+## Others
+
+Get into a pod interactively
+```
+kubectl -n <namespace> exec -it <pod> -- bash
+```
+
+View pod logs
+```
+kubectl -n <namespace> logs <pod>
 ```
