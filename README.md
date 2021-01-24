@@ -60,6 +60,13 @@ List services under namespace
 kubectl -n <namespace> get svc
 ```
 
+Get a service by name
+```
+kubectl get svc <service name>
+# OR describe for more detail
+kubectl describe svc <service name>
+```
+
 ## ConfigMap
 
 Create new config map from yaml file
@@ -87,7 +94,7 @@ kubectl delete -f configmap.yml
 kubectl delete cm <configmap name>
 ```
 
-## Others
+## Pod
 
 Get into a pod interactively
 ```
@@ -97,4 +104,9 @@ kubectl -n <namespace> exec -it <pod> -- bash
 View pod logs
 ```
 kubectl -n <namespace> logs <pod>
+```
+
+List pod environment variables
+```
+kubectl -n <namespace> exec <pod> env
 ```
