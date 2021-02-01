@@ -12,6 +12,13 @@ List all namespaces on the cluster
 kubectl get ns
 ```
 
+Get namespace resource quota
+```
+kubectl -n <namespace> get resourcequota
+# OR describe for more detail
+kubectl -n <namespace> describe resourcequota <resource quoate name>
+```
+
 Delete namespace & everything under it
 ```
 kubectl delete ns <new-name-space>
