@@ -74,6 +74,11 @@ kubectl get svc <service name>
 kubectl describe svc <service name>
 ```
 
+Delete a service under a namespace by name
+```
+kubectl -n <namespace> delete svc <service name>
+```
+
 ## ConfigMap
 
 Create new config map from yaml file
