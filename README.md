@@ -117,3 +117,15 @@ List pod environment variables
 ```
 kubectl -n <namespace> exec <pod> env
 ```
+
+## Ingress
+
+Create new ingress from yaml file
+```
+kubectl create -f ingress.yml
+```
+
+List ingress under namespace
+```
+kubectl -n <namespace> get ing
+```
