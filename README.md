@@ -24,6 +24,11 @@ Delete namespace & everything under it
 kubectl delete ns <new-name-space>
 ```
 
+Switch default namespace to avoid -n <namespace> all the time
+```
+kubectl config set-context --current --namespace=<namespace>
+```
+
 ## Deployment
 
 Create new deployment from yaml file
