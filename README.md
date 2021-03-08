@@ -1,10 +1,53 @@
 # k8s-cheatsheet
 
+## General Syntax
+
+```
+# create
+kubectl create/apply -f <file.yml>
+
+# list
+kubectl get <type(s)>
+
+# get
+kubectl get <type> <name>
+
+# describe
+kubectl describe <type> <name>
+
+# delete
+kubectl delete <type> <name>
+kubectl delete -f <file.yml>
+```
+
 ## Namespace
 
 Create new namespace
 ```
 kubectl create ns <new-name-space>
+# OR better, through yml file
+kubectl apply -f namespace.yml
+
+# namespace.yml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+
+---
+
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: dev
+  namespace: dev
+spec:
+  hard:
+    requests.cpu: 0.8
+    requests.memory: 500Mi
+    limits.cpu: 1
+    limits.memory: 1Gi
+    pods: 10
 ```
 
 List all namespaces on the cluster
@@ -14,9 +57,11 @@ kubectl get ns
 
 Get namespace resource quota
 ```
-kubectl -n <namespace> get resourcequota
+kubectl -n <namespace> get quota
 # OR describe for more detail
-kubectl -n <namespace> describe resourcequota <resource quoate name>
+kubectl -n <namespace> describe quota <resource quoate name>
+# OR just describe the namespace and look for resource quota section
+kubectl describe ns <namespace>
 ```
 
 Delete namespace & everything under it
@@ -113,6 +158,16 @@ kubectl delete cm <configmap name>
 
 ## Pod
 
+Get a specific pod under namespace
+```
+kubectl -n <namespace> describe pod <pod>
+```
+
+Get pods under namespace with specific prefix
+```
+kubectl -n <namespace> describe pod <pod-prefix>
+```
+
 Get into a pod interactively
 ```
 kubectl -n <namespace> exec -it <pod> -- bash
@@ -128,6 +183,16 @@ List pod environment variables
 kubectl -n <namespace> exec <pod> env
 ```
 
+List resource consumption of pods under a namespace
+```
+kubectl top pods -n <namespace>
+```
+
+Get resource consumption of a specific pod
+```
+kubectl top pod <pod>
+```
+
 ## Ingress
 
 Create new ingress from yaml file
@@ -138,4 +203,16 @@ kubectl create -f ingress.yml
 List ingress under namespace
 ```
 kubectl -n <namespace> get ing
+```
+
+## Nodes
+
+List all nodes details in the cluster
+```
+kubectl describe nodes
+```
+
+Get a specific node details
+```
+kubectl describe node <node-name>
 ```
