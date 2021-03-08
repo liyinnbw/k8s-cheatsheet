@@ -216,3 +216,10 @@ Get a specific node details
 ```
 kubectl describe node <node-name>
 ```
+
+## Cluster
+
+Get cluster info
+```
+kubectl cluster-info
+```
