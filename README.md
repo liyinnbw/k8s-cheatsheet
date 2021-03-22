@@ -193,6 +193,12 @@ Get resource consumption of a specific pod
 kubectl top pod <pod>
 ```
 
+Copy file from pod
+```
+kubectl cp <namespace>/<pod>:/remotedir /localdir
+kubectl cp /localdir <namespace>/<pod>:/remotedir
+```
+
 ## Ingress
 
 Create new ingress from yaml file
