@@ -11,6 +11,7 @@ kubectl get <type(s)>
 
 # get
 kubectl get <type> <name>
+kubectl get <type> <name> -o yaml
 
 # describe
 kubectl describe <type> <name>
@@ -229,3 +230,14 @@ Get cluster info
 ```
 kubectl cluster-info
 ```
+  
+Get contexts
+```
+kubectl config get-contexts
+```
+  
+Switch context
+```
+kubectl config use-contexts <context name>
+```
+  
