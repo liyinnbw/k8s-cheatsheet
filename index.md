@@ -1,5 +1,3 @@
-# k8s-cheatsheet
-
 ## General Syntax
 
 ```
