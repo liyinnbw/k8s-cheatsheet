@@ -241,3 +241,15 @@ Switch context
 kubectl config use-contexts <context name>
 ```
   
+## Other Useful Docker Commands
+
+docker system cleanup (use when running out of space)
+```
+docker system prune
+```
+  
+view docker system space usage (and reclaimable space)
+```
+docker system df
+```
+  
